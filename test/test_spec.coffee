@@ -1,19 +1,19 @@
-zombie = require ('zombie')
+zombie = require('zombie')
 vows = require('vows')
-assert  = require 'assert'
+assert  = require('assert')
 
 vows.describe('Resfinity Ops').addBatch
   "transactions":
     topic: ->
       browser = new zombie.Browser({ debug: true })
-      browser.visit("http://localhost:3000", @callback)
+      browser.visit("http://localhost:3009", @callback)
 
     "login":
       topic: (browser) ->
         console.log("login!")
         browser
-          .fill("email", "anixe")
-          .fill("password", "anixe-nx")
+          .fill("email", "user")
+          .fill("password", "password")
           .pressButton("sign in", @callback)
 
       "should have the right page title": (browser) ->
